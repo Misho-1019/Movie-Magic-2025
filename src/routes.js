@@ -1,11 +1,11 @@
 import { Router } from "express";
 import homeController from "./controllers/home-controller.js";
 
-const routes = routes();
+const routes = Router();
 
 routes.use(homeController)
 
-app.all('*', (req, res) => {
+routes.all('*', (req, res) => {
     res.render('404')
 })
 
