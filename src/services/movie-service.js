@@ -4,9 +4,19 @@ import { v4 as uuid } from "uuid";
 export default {
     getAll(filter = {}) {
         let results = movies;
+        
         if (filter.search) {
-            results = movies.filter(movie => movie.title.toLocaleLowerCase().includes(filter.search.toLocaleLowerCase()))
+            results = results.filter(movie => movie.title.toLocaleLowerCase().includes(filter.search.toLocaleLowerCase()))
         }
+
+        if (filter.genre) {
+            results = results.filter(movie => movie.genre.toLocaleLowerCase() === filter.genre)
+        }
+
+        if (filter.year) {
+            results = results.filter(movie => movie.year === filter.year)
+        }
+        
         return results;
     },
     findOne(movieId) {
