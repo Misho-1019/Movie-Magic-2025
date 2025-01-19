@@ -10,13 +10,13 @@ export default {
         }
 
         if (filter.genre) {
-            results = results.filter(movie => movie.genre.toLocaleLowerCase() === filter.genre)
+            results = results.filter(movie => movie.genre.toLocaleLowerCase() === filter.genre.toLocaleLowerCase())
         }
 
         if (filter.year) {
-            results = results.filter(movie => movie.year === filter.year)
+            results = results.filter(movie => movie.year == filter.year)
         }
-        
+
         return results;
     },
     findOne(movieId) {
