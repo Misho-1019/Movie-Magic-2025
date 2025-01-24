@@ -27,10 +27,12 @@ export default {
     create(movieData) {
         const newId = uuid();
 
-        movies.push({
-            id: newId,
-            rating: Number(movieData.rating),
+        const result = Movie.create({
             ...movieData,
+            rating: Number(movieData.rating),
+            year: Number(movieData.year),
         })
+
+        return result;
     }
 }
