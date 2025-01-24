@@ -1,5 +1,4 @@
 import Movie from "../models/Movie.js";
-import { v4 as uuid } from "uuid";
 
 export default {
     getAll(filter = {}) {
@@ -25,7 +24,6 @@ export default {
         return result;
     },
     create(movieData) {
-        const newId = uuid();
 
         const result = Movie.create({
             ...movieData,
