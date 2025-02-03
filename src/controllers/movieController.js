@@ -33,7 +33,7 @@ movieController.get('/:movieId/details', async (req, res) => {
 
     const movie = await movieService.getOneWithCasts(movieId);
 
-    const isCreator = movie.creator && movie.creator.toString() === req.user?.id;
+    const isCreator = movie.creator?.equals(req.user?.id)
 
     res.render('movie/details', { movie, isCreator })
 })
