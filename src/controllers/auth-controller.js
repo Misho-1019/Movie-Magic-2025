@@ -15,12 +15,10 @@ authController.post('/register', async (req, res) => {
     try {
         await authService.register(userData)
     } catch (err) {
-        // console.log(err.errors.email.message);
-        // console.log(err.errors.password.message);
         
-        console.log(getErrorMessage(err));
-        // getErrorMessage(err)
-        
+        const error = getErrorMessage(err);
+
+        return res.render('auth/register', { error })       
     }
     
     res.redirect('/auth/login');
